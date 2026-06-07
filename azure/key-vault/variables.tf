@@ -1,12 +1,4 @@
-variable "key_vault_id" {
-  type = string
-}
-
-variable "server_name" {
-  type = string
-}
-
-variable "database_name" {
+variable "name" {
   type = string
 }
 
