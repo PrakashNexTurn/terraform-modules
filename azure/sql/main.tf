@@ -1,7 +1,7 @@
 module "kv" {
   source = "git::https://github.com/PrakashNexTurn/terraform-modules.git//azure/key-vault?ref=develop"
 
-  name                = "${var.project_name}-${var.environment}-kv"
+  name                = "${var.server_name}-${var.environment}-kv"
   resource_group_name = var.resource_group_name
   location            = var.location
   environment         = var.environment
@@ -18,7 +18,7 @@ resource "azurerm_key_vault_secret" "sql_password" {
   key_vault_id = module.kv.key_vault_id
 }
 
-resource "azurerm_mssql_server" "sql" {
+resource "azurerm_mssql_server" "server" {
   name                         = var.server_name
   resource_group_name         = var.resource_group_name
   location                     = var.location
