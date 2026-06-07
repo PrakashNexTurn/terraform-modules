@@ -1,5 +1,5 @@
 resource "azurerm_storage_account" "sa" {
-  name                     = var.name
+  name                     = substr(replace(var.name, "-", ""), 0, 24)
   resource_group_name     = var.resource_group_name
   location                 = var.location
 
